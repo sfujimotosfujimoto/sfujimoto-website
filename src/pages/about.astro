@@ -1,0 +1,54 @@
+---
+import Header from "../components/Header.astro"
+import Navigation from "../components/Navigation.astro"
+import "../styles/global.css"
+const pageTitle = "About Me"
+
+const identity = {
+  firstName: "S Fujimoto",
+  country: "Japan",
+  occupation: "Educator",
+}
+const skills = ["HTML", "CSS", "JavaScript", "React", "Next.js"]
+
+const skillColor = "maroon"
+---
+
+<html lang='ja'>
+  <head>
+    <meta charset="charset='utf-8'" />
+    <meta name='viewport' content='width=device-width' />
+    <title>{pageTitle}</title>
+    <style define:vars={{ skillColor }}>
+      h1 {
+        color: cornflowerblue;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--skillColor);
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+
+    <h1>{pageTitle}</h1>
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quidem
+      repellendus praesentium soluta amet id ipsam dicta, provident impedit
+      earum molestias nostrum, pariatur consequuntur tempora ducimus aperiam
+      cumque consectetur recusandae velit similique dolorem eligendi sed ex
+      totam? Eaque, sed doloribus!
+    </p>
+    <ul>
+      <li>{identity.firstName}</li>
+      <li>I live in {identity.country}</li>
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+      {skills.map((skill) => <li class='skill'>{skill}</li>)}
+    </ul>
+  </body>
+</html>
